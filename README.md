@@ -12,23 +12,30 @@
 
  
 
+---
+
+---
+
 ### 목차
 
-📖[대회 요약 정리](#대회요약정리)
+##### 📖대회 요약 정리
 
-📂[Code 설명](#Code설명)
+##### 📂Code 설명
 
-📕[대회 과정](#대회과정)
+##### 📕대회 과정
 
-* [DataSet구성](#DataSet구성)
-* [Data전처리](#Data전처리)
-* [DataFeature](#DataFeature)
-* [UseModel](#UseModel)
-* [새로운시도](#새로운시도)
+1. DataSet구성
 
-📈[성공](#성공)
+2. Data전처리
+3. DataFeature
 
-📉[실패](#실패)
+4. UseModel
+5. 새로운시도
+6. 전체 과정
+
+##### 📈성공
+
+##### 📉실패
 
 
 
@@ -36,17 +43,19 @@
 
 ---
 
-### 대회요약정리
+### 📖대회요약정리
 
 ![img_1](https://github.com/bcaitech1/p2-tab-Headbreakz/blob/master/Image/img_1.png?raw=true)
 
 ![img_2](https://github.com/bcaitech1/p2-tab-Headbreakz/blob/master/Image/img_2.png?raw=true)
 
----
+
 
 ---
 
-### Code설명
+---
+
+### 📂Code설명
 
 [자세한 설명](https://github.com/bcaitech1/p2-tab-Headbreakz/tree/master/Code)
 
@@ -66,13 +75,13 @@
 
 ---
 
-### 대회과정
+### 📕대회과정
 
 #### 1. DataSet구성
 
- 데이터는 고객 별로 2년간 기록된 데이터로, 예측에 사용하기 위해 1년 단위로 데이터를 나누었습니다.`"소비량의 차이는 있지만, 소비 패턴은 변하지 않았을 것이다"`의  가정을 가지고 Train set은 2009년 12월 ~ 2010년 11월, Test set은 2010년 12월 ~ 2011년 11월로 1년 단위로 나누어 사용하였습니다. 
+​	데이터는 고객 별로 2년간 기록된 데이터로, 예측에 사용하기 위해 1년 단위로 데이터를 나누었습니다.`"소비량의 차이는 있지만, 소비 패턴은 변하지 않았을 것이다"`의  가정을 가지고 Train set은 2009년 12월 ~ 2010년 11월, Test set은 2010년 12월 ~ 2011년 11월로 1년 단위로 나누어 사용하였습니다. 
 
-  똑같은 모델과 Feature를 사용하여 Baseline에서 사용한 Train set, Test set 방식과 비교를 하였고, 더 좋은 성능을 확인하였습니다. 그리고 전체 데이터에서 상품 구입량에 따라 월 단위로 그래프를 그리게 될 경우, 연도 별로 비슷한 패턴의 구입량을 확인하였습니다.
+​	똑같은 모델과 Feature를 사용하여 Baseline에서 사용한 Train set, Test set 방식과 비교를 하였고, 더 좋은 성능을 확인하였습니다. 그리고 전체 데이터에서 상품 구입량에 따라 월 단위로 그래프를 그리게 될 경우, 연도 별로 비슷한 패턴의 구입량을 확인하였습니다.
 
 ![img_3](https://github.com/bcaitech1/p2-tab-Headbreakz/blob/master/Image/img_3.jpg?raw=true)
 
@@ -120,7 +129,7 @@
 
 #### 4. UseModel
 
-##### 	4.1 LSTM & CNN
+##### 		4.1 LSTM & CNN
 
 ​	데이터 분석 이후 사용한 방법은 CNN과 LSTM으로 시작을 하였습니다. 제일 익숙한 CNN 모델에서 2D conv이 아닌 1D conv를 사용하여 모델을 만들었습니다. CNN 모델에 데이터를 넣기 위해, 고객 별 월 소비 총합으로 데이터 셋을 구성하여 Input size로 (24,1)을 사용 하였습니다. 그리고 `filter = 64, Kernel size =  3, Padding = 0,stride = 1`으로 2층을 쌓고,  `AvgPool1D, fc층`으로 구성하였습니다.
 
@@ -128,13 +137,13 @@
 
 
 
-##### 4.2 Lightgbm
+##### 	4.2 Lightgbm
 
 ​	제일 처음에 사용하고, 최종에 사용한 Decision tree 계열 모델입니다. Decision tree 계열에 모델에서는 `모델의 구조보다 사용한 데이터의 Feature에 중점`을 두고 Baseline에 주어진 Code를 사용하였습니다. 
 
 
 
-##### 4.3 Xgb , catboost
+##### 	4.3 Xgb , catboost
 
 ​	category 계열에서 catboost가 성능이 우수하다는 이야기를 듣고  Lightgbm과의 성능 비교를 위해 사용한 모델입니다. 
 
@@ -158,7 +167,7 @@
 
 ---
 
-### 성공
+### 📈성공
 
 #### 1. Feature 설정
 
@@ -186,7 +195,7 @@
 
 ---
 
-### 실패
+### 📉실패
 
 #### 1.LSTM & CNN
 
