@@ -18,32 +18,32 @@
 
 ### 목차
 
-##### 📖대회 요약 정리
+##### [📖대회 요약 정리](#summary)
 
-##### 📂Code 설명
+##### [📂Code 설명](#code)
 
-##### 📕대회 과정
+##### [📕대회 과정](#process)
 
-1. DataSet구성
+1. [DataSet구성](#dataset)
 
-2. Data전처리
-3. DataFeature
+2. [Data전처리](#preprocessing)
+3. [DataFeature](#DataFeature)
 
-4. UseModel
-5. 새로운시도
-6. 전체 과정
+4. [UseModel](#UseModel)
+5. [새로운시도](#new)
+6. [전체 과정](#total)
 
-##### 📈성공
+##### [📈성공](#success)
 
-##### 📉실패
+##### [📉실패](#failure)
 
 
-
----
 
 ---
 
-### 📖대회요약정리
+---
+
+### 📖대회요약정리 <a name="summary"></a>
 
 ![img_1](https://github.com/bcaitech1/p2-tab-Headbreakz/blob/master/Image/img_1.png?raw=true)
 
@@ -55,7 +55,7 @@
 
 ---
 
-### 📂Code설명
+### 📂Code설명 <a name="code"></a>
 
 [자세한 설명](https://github.com/bcaitech1/p2-tab-Headbreakz/tree/master/Code)
 
@@ -75,9 +75,9 @@
 
 ---
 
-### 📕대회과정
+### 📕대회과정 <a name="process"></a>
 
-#### 1. DataSet구성
+#### 1. DataSet구성 <a name="dataset"></a>
 
 ​	데이터는 고객 별로 2년간 기록된 데이터로, 예측에 사용하기 위해 1년 단위로 데이터를 나누었습니다.`"소비량의 차이는 있지만, 소비 패턴은 변하지 않았을 것이다"`의  가정을 가지고 Train set은 2009년 12월 ~ 2010년 11월, Test set은 2010년 12월 ~ 2011년 11월로 1년 단위로 나누어 사용하였습니다. 
 
@@ -87,7 +87,7 @@
 
   
 
-#### 2. Data전처리
+#### 2. Data전처리 <a name="preprocessing"></a>
 
 ​	데이터의 Product ID(상품 번호)에서 특이한 경우를 발견하였는데, 이는 실제 예측 데이터에도 충분히 나올 수 있는 경우로 생각되어 제거하지 않고, 유사한 Product ID 값(ex. 2014A, 2014B,2014C)을 통일 시켰습니다. 그리고 5000개 이상있는 Description(상품 설명)을  단어별로 분리해서 많이 등장한 단어를 중심으로 제품류 60종+ @로 바꾸었습니다.
 
@@ -95,7 +95,7 @@
 
 
 
-#### 3. DataFeature
+#### 3. DataFeature <a name="DataFeature"></a>
 
 ​	Data feature 선택은 대회 동안 대부분의 시간을 소비하였습니다. Feature는 Baseline에서 제공한 값과  `Total 과 Time`에 대한 값을 중점적으로 사용하였습니다.
 
@@ -127,7 +127,7 @@
 
 
 
-#### 4. UseModel
+#### 4. UseModel <a name="UseModel"></a>
 
 ##### 		4.1 LSTM & CNN
 
@@ -149,7 +149,7 @@
 
 
 
-#### 5. 새로운시도
+#### 5. 새로운시도 <a name="new"></a>
 
 ​	학습에 Test set을 사용하면 안되지만,  `Pseudo labeling`의  방식처럼 Test set을 예측하여 Train set에 포함시켜 모델 학습을 진행하였습니다.  예측한 Test set을 Train set에 포함 시킨 이유는 `"Decision tree 계열을 사용 할 경우, 데이터 값과 양에 따라서 다른 모델이 만들어 질 것이다"` 라고 생각 했습니다. 즉, 새로운 데이터를 넣을 경우 기존과는 다른 기준으로 모델이 형성 될 것이고, 이전과는 새로운 예측 값이 나올 것으로 예상하였습니다.
 
@@ -157,7 +157,7 @@
 
 
 
-#### 6. 전체 과정
+#### 6. 전체 과정 <a name="total"></a>
 
 ![img_5](https://github.com/bcaitech1/p2-tab-Headbreakz/blob/master/Image/img_5.png?raw=true)
 
@@ -167,7 +167,7 @@
 
 ---
 
-### 📈성공
+### 📈성공 <a name="success"></a>
 
 #### 1. Feature 설정
 
@@ -195,7 +195,7 @@
 
 ---
 
-### 📉실패
+### 📉실패 <a name="failure"></a>
 
 #### 1.LSTM & CNN
 
